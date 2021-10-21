@@ -844,7 +844,7 @@ describe('format API', () => {
             },
             values
           )
-        ).toBe(id);
+        ).toBe(`[${id}]`);
 
         expect(config.onError.mock.calls).toMatchInlineSnapshot(`
           Array [
@@ -993,7 +993,7 @@ describe('format API', () => {
       it('returns message `id` when message and `defaultMessage` are missing', () => {
         const id = 'missing';
 
-        expect(formatMessage({id: id})).toBe(id);
+        expect(formatMessage({id: id})).toBe(`[${id}]`);
 
         expect(config.onError).toHaveBeenCalledTimes(2);
         expect(config.onError).toHaveBeenCalledWith(
@@ -1017,7 +1017,7 @@ describe('format API', () => {
             id: id,
             defaultMessage: messages[id],
           })
-        ).toBe(id);
+        ).toBe(`[${id}]`);
 
         expect(config.onError).toHaveBeenCalledTimes(2);
         expect(config.onError).toHaveBeenCalledWith(

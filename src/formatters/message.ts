@@ -192,9 +192,9 @@ export function formatMessage(
       )
     );
     if (typeof message === 'string') {
-      return message || defaultMessage || String(id);
+      return message || defaultMessage || `[${String(id)}]`;
     }
-    return defaultMessage || String(id);
+    return defaultMessage || `[${String(id)}]`;
   }
   if (
     formattedMessageParts.length === 1 &&
